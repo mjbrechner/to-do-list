@@ -1,13 +1,14 @@
 'use strict';
 const dailyListBox = document.getElementById("daily-list-box");
 let itemNumber = 0;
+const textInTextBox = document.getElementById("add-item-text-box");
+
 
 function addItem() {
     let addingItem = document.createElement("li");
     let addingCheckbox = document.createElement("input");
     let addingListText = document.createElement("div");
     let addingXOut = document.createElement("input");
-    // let createCheckbox = document.querySelector;
     itemNumber = itemNumber + 1;
 
     dailyListBox.appendChild(addingItem);
@@ -22,7 +23,9 @@ function addItem() {
 
     addingItem.appendChild(addingListText);
     addingListText.setAttribute("class", "list-text");
-    addingListText.innerText = `Item # ${itemNumber}`;
+    addingListText.value = `Item # ${itemNumber}`;
+    addingListText.innerText = textInTextBox.value;
+    // addingListText.innerText = addingListText.value;
 
     addingItem.appendChild(addingXOut);
     addingXOut.setAttribute("id", `x-out${itemNumber}`);
@@ -30,86 +33,82 @@ function addItem() {
     addingXOut.setAttribute("type", "checkbox");
     addingXOut.setAttribute("onclick", "deleteItem()");
 
-    // document.getElementById(`item${itemNumber}`).textContent(itemNumber);
 }
 
-// Checking/unchecking a list item--START
-// function checkTheBox() {
-//         let x = document.getElementById(`checkbox${i}`);
-//         if (x.checked === true) {
-//             console.log("We're checked");
-//         } else {
-//             console.log("We're NOT checked");
-//         }
-//     }
-// Checking/unchecking a list item--END
 
-// function checkTheBox() {
-//     for (let i = 1; i <= itemNumber; i++) {
-//         let highlightedCheckbox = document.getElementById(`checkbox${i}`);
-//         if (highlightedCheckbox.checked === true) {
-//             highlightedCheckbox.style.backgroundColor = "gray";
-//             console.log("grey");
-//         } else {
-//             highlightedCheckbox.style.backgroundColor = "white";
-//             console.log("white");
-//         }
-//     }
-// }
 function checkTheBox() {
+    // Clear itemArray and fill it in for each item on the list.
+    let itemArray = [];
+    for (let i = 1; i <= itemNumber; i++) {
+        itemArray.push(i);
+        console.log(itemArray);
+    }
+    let boxesToBeChecked = document.getElementsByClassName("checkbox");
+
+    for (let x = 1; x <= itemNumber; x++) {
+
+        // Check to make sure item wasn't previously deleted.
+        if (document.getElementById(`x-out${x}`)) {
+
+            // If item still exists, then check it off.
+
+            if (document.getElementById(`checkbox${x}`).checked === true) {
+                document.getElementById(`item${x}`).style.backgroundColor = "RGB(122, 179, 150)";
+            } else {
+                document.getElementById(`item${x}`).style.backgroundColor = "white";
+            }
+
+        } else {
+            continue;
+        }
+    }
 
 }
 
-const form = document.getElementById("daily-list-box");
 
-form.addEventListener('click', function () {
-    let boxesToBeChecked = document.getElementsByClassName("checkbox");
+function deleteItem() {
+    let itemArray = [];
     for (let i = 1; i <= itemNumber; i++) {
-        if (document.getElementById(`checkbox${i}`).checked === true) {
-            document.getElementById(`item${i}`).style.backgroundColor = "RGB(122, 179, 150)";
-        } else {
-            document.getElementById(`item${i}`).style.backgroundColor = "white";
-        }
+        itemArray.push(i);
+        console.log(itemArray);
     }
 
     let boxesToBeDeleted = document.getElementsByClassName("x-out");
-    for (let i = 1; i <= itemNumber; i++) {
-        if (document.getElementById(`x-out${i}`).checked === true) {
+    for (let x = 1; x <= itemNumber; x++) {
 
-            if (confirm("Delete entry?")) {
-                document.getElementById(`item${i}`).style.backgroundColor = "red";
+        // Check to make sure item wasn't previously deleted.
+        if (document.getElementById(`x-out${x}`)) {
+
+            // If item still exists, then delete it if it is checked.
+            if (document.getElementById(`x-out${x}`).checked === true) {
+
+                if (confirm("Delete entry?")) {
+                    document.getElementById(`item${x}`).remove();
+                } else {
+                    document.getElementById(`item${x}`).style.backgroundColor = "yellow";
+                }
             } else {
-                document.getElementById(`item${i}`).style.backgroundColor = "yellow";
+                document.getElementById(`item${x}`).style.backgroundColor = "white";
             }
+
         } else {
-            document.getElementById(`item${i}`).style.backgroundColor = "white";
+            continue;
         }
+
     }
-
-
-})
-
-function deleteItem() {
-    // if (confirm("Delete entry?")) {
-    //     document.getElementsByClassName("x-out").style.backgroundColor = "red";
-    // } else {
-    //     document.getElementsByClassName("x-out").style.backgroundColor = "yellow";
-    // }
 }
 
-//Delete entry (This works, but it disables the first event listener when the app is running.)
-// form.addEventListener('click', function () {
-//     let boxesToBeDeleted = document.getElementsByClassName("x-out");
-//     for (let i = 1; i <= itemNumber; i++) {
-//         if (document.getElementById(`x-out${i}`).checked === true) {
+// When someone enters a new list item
+textInTextBox.addEventListener("keypress", (event) => {
+    // If user presses "Enter" key
+    if (event.key === "Enter") {
 
-//             if (confirm("Delete entry?")) {
-//                 document.getElementById(`item${i}`).style.backgroundColor = "red";
-//             } else {
-//                 document.getElementById(`item${i}`).style.backgroundColor = "yellow";
-//             }
-//         } else {
-//             document.getElementById(`item${i}`).style.backgroundColor = "white";
-//         }
-//     }
-// })
+        if (textInTextBox.value !== "") {
+            addItem();
+            textInTextBox.value = "";
+        } else {
+            preventDefault();
+        }
+
+    }
+});
