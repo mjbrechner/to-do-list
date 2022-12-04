@@ -1,6 +1,8 @@
 'use strict';
 const dailyListBox = document.getElementById("daily-list-box");
+
 let itemNumber = 0;
+
 const textInTextBox = document.getElementById("add-item-text-box");
 
 
@@ -10,6 +12,7 @@ function addItem() {
     let addingListText = document.createElement("div");
     let addingXOut = document.createElement("input");
     itemNumber = itemNumber + 1;
+    localStorage.setItem("savedItemNumber", itemNumber);
 
     dailyListBox.appendChild(addingItem);
     addingItem.setAttribute("id", `item${itemNumber}`);
@@ -33,18 +36,12 @@ function addItem() {
     addingXOut.setAttribute("type", "checkbox");
     addingXOut.setAttribute("onclick", "deleteItem()");
 
+    // Update localStorage
+    localStorage.setItem("savedList", dailyListBox.innerHTML);
 }
 
 
 function checkTheBox() {
-    // Clear itemArray and fill it in for each item on the list.
-    let itemArray = [];
-    for (let i = 1; i <= itemNumber; i++) {
-        itemArray.push(i);
-        console.log(itemArray);
-    }
-    let boxesToBeChecked = document.getElementsByClassName("checkbox");
-
     for (let x = 1; x <= itemNumber; x++) {
 
         // Check to make sure item wasn't previously deleted.
@@ -63,17 +60,12 @@ function checkTheBox() {
         }
     }
 
+    // Update localStorage
+    localStorage.setItem("savedList", dailyListBox.innerHTML);
 }
 
 
 function deleteItem() {
-    let itemArray = [];
-    for (let i = 1; i <= itemNumber; i++) {
-        itemArray.push(i);
-        console.log(itemArray);
-    }
-
-    let boxesToBeDeleted = document.getElementsByClassName("x-out");
     for (let x = 1; x <= itemNumber; x++) {
 
         // Check to make sure item wasn't previously deleted.
@@ -96,6 +88,9 @@ function deleteItem() {
         }
 
     }
+
+    // Update localStorage
+    localStorage.setItem("savedList", dailyListBox.innerHTML);
 }
 
 // When someone enters a new list item

@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="images/favicon-180.png" sizes="180x180">
     <link rel="shortcut icon" href="images/favicon-192.png" sizes="192x192"> -->
     <link rel="stylesheet" href="css/styles.css">
+    <script src="javascript/stored-list.js"></script>
 </head>
 
 <body>
@@ -26,9 +27,9 @@
     <main>
         <div class="to-do-box">
             <ul id="daily-list-box">Daily List
-                <li>
+                <!-- <li>
                     <div class="x-out"></div>
-                </li>
+                </li> -->
             </ul>
             <!-- <div id="add-item" onclick="addItem()">Add new item: <textarea id="text-input"></textarea></div> -->
             <div id="add-item">
@@ -37,6 +38,7 @@
             </div>
         </div>
 
+        <button onclick="loadStorage()">Test local storage</button>
     </main>
     <footer>
         <p>© 2022 <a href="https://github.com/mjbrechner">M.J. Brechner</a></p>
