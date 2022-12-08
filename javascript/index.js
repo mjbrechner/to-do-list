@@ -11,6 +11,16 @@ function addItem() {
     let addingCheckbox = document.createElement("input");
     let addingListText = document.createElement("div");
     let addingXOut = document.createElement("input");
+
+    // console.log(`item number ${itemNumber}`);
+    // if (parseInt(localStorage.getItem("savedItemNumber")) > 0) {
+    //     itemNumber = parseInt(localStorage.getItem("savedItemNumber"));
+    //     console.log(`saved item number ` + localStorage.getItem("savedItemNumber"));
+    //     console.log(itemNumber);
+    // } else {
+    //     itemNumber = 0;
+    // }
+
     itemNumber = itemNumber + 1;
     localStorage.setItem("savedItemNumber", itemNumber);
 
@@ -18,11 +28,11 @@ function addItem() {
     addingItem.setAttribute("id", `item${itemNumber}`);
     addingItem.setAttribute("class", "item");
 
-    addingItem.appendChild(addingCheckbox);
-    addingCheckbox.setAttribute("id", `checkbox${itemNumber}`);
-    addingCheckbox.setAttribute("class", "checkbox");
-    addingCheckbox.setAttribute("type", "checkbox");
-    addingCheckbox.setAttribute("onclick", "checkTheBox()");
+    // addingItem.appendChild(addingCheckbox);
+    // addingCheckbox.setAttribute("id", `checkbox${itemNumber}`);
+    // addingCheckbox.setAttribute("class", "checkbox");
+    // addingCheckbox.setAttribute("type", "checkbox");
+    // addingCheckbox.setAttribute("onclick", "checkTheBox()");
 
     addingItem.appendChild(addingListText);
     addingListText.setAttribute("class", "list-text");
@@ -73,20 +83,20 @@ function deleteItem() {
 
             // If item still exists, then delete it if it is checked.
             if (document.getElementById(`x-out${x}`).checked === true) {
-
-                if (confirm("Delete entry?")) {
-                    document.getElementById(`item${x}`).remove();
-                } else {
-                    document.getElementById(`item${x}`).style.backgroundColor = "yellow";
-                }
-            } else {
-                document.getElementById(`item${x}`).style.backgroundColor = "white";
+                document.getElementById(`item${x}`).remove();
+                //     if (confirm("Delete entry?")) {
+                //         document.getElementById(`item${x}`).remove();
+                //     } else {
+                //         document.getElementById(`item${x}`).style.backgroundColor = "yellow";
+                //     }
+                // } else {
+                //     document.getElementById(`item${x}`).style.backgroundColor = "white";
             }
 
         } else {
             continue;
         }
-
+        // checkTheBox();
     }
 
     // Update localStorage

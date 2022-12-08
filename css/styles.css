@@ -76,10 +76,11 @@ width: fit-content;
 .x-out {
     right: 0;
     top: 0;
-    width: 10px;
-    height: 10px;
+    width: 25px;
+    height: 25px;
     border-style: solid;
-    border-width: 1px;
+    border-width: 2px;
+    border-radius: 1px;
 }
 
 footer {

@@ -59,7 +59,7 @@ function checkTheBox() {
 
 const form = document.getElementById("daily-list-box");
 
-form.addEventListener('click', function () {
+form.addEventListener('click', function() {
         let boxesToBeChecked = document.getElementsByClassName("checkbox");
         for (let i = 1; i <= itemNumber; i++) {
             if (document.getElementById(`checkbox${i}`).checked === true) {
