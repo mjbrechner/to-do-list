@@ -1,8 +1,28 @@
+/* Palette from Color Hunt
+https://colorhunt.co/palette/2b3a55ce7777e8c4c4f2e5e5
+#2B3A55
+#CE7777
+#E8C4C4
+#F2E5E5 */
+
 body {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
     text-align: center;
+    font-family: 'Signika', sans-serif;
+    background-color: #F2E5E5;
+    color: #2B3A55;
+}
+
+a {
+    color: #2B3A55;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1em;
+    text-align: left;
 }
 
 .to-do-box {
@@ -22,32 +42,43 @@ body {
     margin: 0;
 }
 
-li,
-#add-item {
+.item {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+    background-color: #E8C4C4;
     width: 75%;
-    height: 2em;
-    font-size: 1.5em;
+    height: auto;
+    font-size: .8em;
     margin: 3px;
-    border-style: solid;
-    border-width: 3px;
+    border: 3px solid #CE7777;
     border-radius: 5px;
-    padding: 5px 5px 0 5px;
+    padding: 5px;
+    overflow-wrap: anywhere;
+}
+
+.list-text {
+    font-size: 1.5em;
+    padding-left: 1em;
+}
+
+.x-out {
+    width: 25px;
+    height: 25px;
 }
 
 #add-item {
     display: flex;
     align-items: center;
-    border-style: none;
-    padding: 1px;
-    margin: 1px;
-    /* cursor: pointer; */
+    width: 75%;
+    margin: 3px;
+    padding: 5px 5px 0 5px;
 }
 
 #add-item-text {
-width: fit-content;
+    font-size: 1em;
+    width: 5em;
 }
 
 #add-item-text-box {
@@ -55,38 +86,20 @@ width: fit-content;
     height: 1.5em;
     font-size: 1.3em;
     resize: none;
+    border: 3px solid #CE7777;
+    border-radius: 5px;
+    outline: none;
 }
 
-.item {
-    background-color: white;
-}
-
-.checkbox {
-    width: 25px;
-    height: 25px;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 2px;
-}
-
-.list-text {
-    font-size: 1.5em;
-}
-
-.x-out {
-    right: 0;
-    top: 0;
-    width: 25px;
-    height: 25px;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 1px;
+#add-item-text-box:focus {
+    border-color: none;
 }
 
 footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     font-size: .8em;
     margin-bottom: .25em;
 }
@@ -98,6 +111,24 @@ footer {
 
 /*tablet query*/
 @media only screen and (min-width: 768px) {
+
+    h1 {
+        font-size: 1.75em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .item {
+        font-size: .9em;
+    }
+
+    #add-item-text {
+        font-size: 1.2em;
+        width: 8.5em;
+    }
 
     footer {
         flex-direction: row;
@@ -113,6 +144,24 @@ footer {
 
 /*desktop query*/
 @media only screen and (min-width: 992px) {
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .item {
+        font-size: 1em;
+    }
+
+    #add-item-text {
+        font-size: 1.4em;
+    }
+
     footer {
         font-size: 1em;
     }

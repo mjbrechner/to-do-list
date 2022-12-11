@@ -13,37 +13,40 @@
     <link rel="shortcut icon" href="images/favicon-128.png" sizes="128x128">
     <link rel="shortcut icon" href="images/favicon-180.png" sizes="180x180">
     <link rel="shortcut icon" href="images/favicon-192.png" sizes="192x192"> -->
+
+    <!-- Signika from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script src="javascript/stored-list.js"></script>
 </head>
 
-<body>
+<body onload="loadStorage()">
 
     <header>
         <h1>To Do List</h1>
-        <h2>Just a basic to do list. Add new items and check them off when completed.</h2>
+        <h2>Add new items below to save them to your list, and check them off to delete them.</h2>
     </header>
 
     <main>
         <div class="to-do-box">
             <ul id="daily-list-box">
             </ul>
-            <!-- <div id="add-item" onclick="addItem()">Add new item: <textarea id="text-input"></textarea></div> -->
             <div id="add-item">
                 <div id="add-item-text">Add new item:</div>
-                <input type="text" id="add-item-text-box"></input>
+                <input type="text" id="add-item-text-box" maxlength="120"></input>
             </div>
         </div>
-
-        <button onclick="loadStorage()">Test local storage</button>
     </main>
+
     <footer>
         <p>© 2022 <a href="https://github.com/mjbrechner">M.J. Brechner</a></p>
         <!-- Profile picture/favicon created by M.J. Brechner © 2022 -->
         <img class="profile-pic"
             src="https://raw.githubusercontent.com/mjbrechner/diacritics-eraser/main/images/profile-pic.png">
     </footer>
-    </footer>
+    
     <script src="javascript/index.js" defer></script>
 </body>
 
