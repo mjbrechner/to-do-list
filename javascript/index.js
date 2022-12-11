@@ -11,6 +11,8 @@ function addItem() {
     let addingListText = document.createElement("div");
     let addingXOut = document.createElement("input");
 
+// Only add item if there is currently text to be added
+if (textInTextBox.value.trim() !== "") {
     itemNumber = itemNumber + 1;
     localStorage.setItem("savedItemNumber", itemNumber);
 
@@ -31,6 +33,11 @@ function addItem() {
 
     // Update localStorage
     localStorage.setItem("savedList", dailyListBox.innerHTML);
+}
+
+    // Clear textbox contents. This is outside the previous if statement, so that if someone enters blank spaces,
+    // those spaces (which cannot be added as an item) will also be refreshed by being cleared up.
+    textInTextBox.value = "";
 }
 
 function checkTheBox() {
@@ -79,13 +86,6 @@ function deleteItem() {
 textInTextBox.addEventListener("keypress", (event) => {
     // If user presses "Enter" key
     if (event.key === "Enter") {
-
-        if (textInTextBox.value !== "") {
             addItem();
-            textInTextBox.value = "";
-        } else {
-            preventDefault();
-        }
-
     }
 });
