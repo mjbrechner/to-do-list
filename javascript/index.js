@@ -38,6 +38,10 @@ if (textInTextBox.value.trim() !== "") {
     // Clear textbox contents. This is outside the previous if statement, so that if someone enters blank spaces,
     // those spaces (which cannot be added as an item) will also be refreshed by being cleared up.
     textInTextBox.value = "";
+
+    // Keep focus in that same textbox even after submitting.
+    // Without this, focus only remains upon pressing Enter instead of also by clicking the submit button.
+    document.getElementById("add-item-text-box").focus();
 }
 
 function checkTheBox() {
