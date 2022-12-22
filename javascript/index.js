@@ -1,39 +1,36 @@
 'use strict';
 const dailyListBox = document.getElementById("daily-list-box");
-
 let itemNumber = 0;
-
 const textInTextBox = document.getElementById("add-item-text-box");
-
 
 function addItem() {
     let addingItem = document.createElement("li");
     let addingListText = document.createElement("div");
     let addingXOut = document.createElement("input");
 
-// Only add item if there is currently text to be added
-if (textInTextBox.value.trim() !== "") {
-    itemNumber = itemNumber + 1;
-    localStorage.setItem("savedItemNumber", itemNumber);
+    // Only add item if there is currently text to be added
+    if (textInTextBox.value.trim() !== "") {
+        itemNumber = itemNumber + 1;
+        localStorage.setItem("savedItemNumber", itemNumber);
 
-    dailyListBox.appendChild(addingItem);
-    addingItem.setAttribute("id", `item${itemNumber}`);
-    addingItem.setAttribute("class", "item");
+        dailyListBox.appendChild(addingItem);
+        addingItem.setAttribute("id", `item${itemNumber}`);
+        addingItem.setAttribute("class", "item");
 
-    addingItem.appendChild(addingListText);
-    addingListText.setAttribute("class", "list-text");
-    addingListText.value = `Item # ${itemNumber}`;
-    addingListText.innerText = textInTextBox.value;
+        addingItem.appendChild(addingListText);
+        addingListText.setAttribute("class", "list-text");
+        addingListText.value = `Item # ${itemNumber}`;
+        addingListText.innerText = textInTextBox.value;
 
-    addingItem.appendChild(addingXOut);
-    addingXOut.setAttribute("id", `x-out${itemNumber}`);
-    addingXOut.setAttribute("class", "x-out");
-    addingXOut.setAttribute("type", "checkbox");
-    addingXOut.setAttribute("onclick", "deleteItem()");
+        addingItem.appendChild(addingXOut);
+        addingXOut.setAttribute("id", `x-out${itemNumber}`);
+        addingXOut.setAttribute("class", "x-out");
+        addingXOut.setAttribute("type", "checkbox");
+        addingXOut.setAttribute("onclick", "deleteItem()");
 
-    // Update localStorage
-    localStorage.setItem("savedList", dailyListBox.innerHTML);
-}
+        // Update localStorage
+        localStorage.setItem("savedList", dailyListBox.innerHTML);
+    }
 
     // Clear textbox contents. This is outside the previous if statement, so that if someone enters blank spaces,
     // those spaces (which cannot be added as an item) will also be refreshed by being cleared up.
@@ -90,6 +87,6 @@ function deleteItem() {
 textInTextBox.addEventListener("keypress", (event) => {
     // If user presses "Enter" key
     if (event.key === "Enter") {
-            addItem();
+        addItem();
     }
 });

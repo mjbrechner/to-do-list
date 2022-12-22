@@ -78,8 +78,8 @@ h2 {
 }
 
 #add-item-text {
-    font-size: 1em;
     width: 5em;
+    font-size: 1em;
 }
 
 #add-item-text-box {
@@ -110,7 +110,7 @@ button {
 }
 
 button:active {
-transform: translate(1px);
+    transform: translate(1px);
 }
 
 footer {
@@ -144,9 +144,10 @@ footer {
         text-align: left;
     }
 
-    #add-item-text, button {
-        font-size: 1.2em;
+    #add-item-text,
+    button {
         width: 7em;
+        font-size: 1.2em;
     }
 
     footer {
@@ -169,15 +170,16 @@ footer {
     }
 
     h2 {
-        font-size: 1.5em;
         text-align: center;
+        font-size: 1.5em;
     }
 
     .item {
         font-size: 1em;
     }
 
-    #add-item-text, button {
+    #add-item-text,
+    button {
         font-size: 1.4em;
     }
 

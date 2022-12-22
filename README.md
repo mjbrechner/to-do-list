@@ -1,4 +1,4 @@
-Diacritics Eraser
+To Do List
 by M.J. Brechner
 
 This is a basic to do list utilizing local storage. You can add items and check them off when you want to delete them from the list.
