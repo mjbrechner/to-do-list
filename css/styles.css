@@ -23,6 +23,7 @@ h1 {
 h2 {
     font-size: 1em;
     text-align: left;
+    text-indent: 1em;
 }
 
 .to-do-box {
@@ -125,6 +126,15 @@ footer {
 .profile-pic {
     width: 3em;
     height: 3em;
+}
+
+/*large phone query*/
+@media only screen and (min-width: 580px) {
+
+    h2 { /*This query exists to text-align to center once h2 can fit on one line*/
+        text-align: center;
+        text-indent: 0;
+    }
 }
 
 /*tablet query*/
