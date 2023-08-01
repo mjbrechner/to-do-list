@@ -15,7 +15,11 @@ function addItem() {
 
         dailyListBox.appendChild(addingItem);
         addingItem.setAttribute("id", `item${itemNumber}`);
-        addingItem.setAttribute("class", "item");
+        if (itemNumber % 2 == 0) {
+            addingItem.setAttribute("class", "item item-even");
+        } else {
+            addingItem.setAttribute("class", "item item-odd");
+        }
 
         addingItem.appendChild(addingListText);
         addingListText.setAttribute("class", "list-text");

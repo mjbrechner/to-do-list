@@ -18,6 +18,7 @@ a {
 
 h1 {
     font-size: 1.5em;
+    text-shadow: 2px 2px 10px #CE7777;
 }
 
 h2 {
@@ -58,6 +59,16 @@ h2 {
     border-radius: 5px;
     padding: 5px;
     overflow-wrap: anywhere;
+}
+
+.item-odd {
+background-color: #E8C4C4;
+border: 3px solid #CE7777;
+}
+
+.item-even {
+background-color: #CE7777;
+border: 3px solid #E8C4C4;
 }
 
 .list-text {
