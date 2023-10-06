@@ -74,6 +74,7 @@ border: 3px solid #E8C4C4;
 .list-text {
     font-size: 1.5em;
     padding-left: 1em;
+    width: 95%;
 }
 
 .x-out {
