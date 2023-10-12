@@ -127,8 +127,6 @@ button:active {
 }
 
 footer {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: .8em;
@@ -173,6 +171,7 @@ footer {
     }
 
     footer {
+        display: flex;
         flex-direction: row;
         margin-top: 1.25em;
         font-size: .9em;
